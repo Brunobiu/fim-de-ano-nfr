@@ -305,25 +305,27 @@ footer {
     }
 
     .container {
-        display: flex;              /* Container flex */
-        flex-direction: column;     /* Blocos empilhados verticalmente */
-        gap: 10px;                  /* Espaçamento entre os blocos */
+        display: flex;
+        flex-wrap: wrap;       /* Permite quebrar linha se necessário */
+        gap: 10px;             /* Diminuindo o espaçamento horizontal e vertical */
+        justify-content: center;
     }
     
     .block {
-        width: 100%;                /* Largura completa */
-        height: 75vh;               /* Altura de 75% da viewport */
+        width: 100%;           /* Mantém a largura total */
+        height: 75vh;
         border-radius: 10px;
-        border: 10px solid transparent;  /* Reduzi a borda para diminuir o espaçamento */
+        border: 5px solid transparent; /* Se essa borda influencia o espaçamento, reduza */
         display: flex;
         justify-content: center;
         align-items: center;
-        background-size: contain;   /* Mantém a proporção correta da imagem */
+        background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
-        margin: 5px 0;              /* Margem vertical reduzida */
+        margin: 0;             /* Remove qualquer margem lateral adicional */
         font-size: 1.5rem;
     }
+    
     
 
     /* Ajustando a largura do modal */
