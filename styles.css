@@ -1,0 +1,290 @@
+/* Removendo margens e padding globais excessivos */
+* {
+    margin: 0; /* Removendo a margem excessiva */
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Configuração de altura e largura do corpo e html */
+body, html {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Header fixo com ajuste de padding e fundo branco */
+header {
+    background-color: #fff; /* Cabeçalho totalmente branco */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+/* Container do cabeçalho */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo dentro do cabeçalho */
+.logo-left, .logo-center, .logo-right {
+    display: flex;
+    align-items: center;
+}
+
+.logo-left img, .logo-center img, .logo-right img {
+    height: 80px;
+}
+
+.logo-right span {
+    color: black; /* Texto da direita em preto */
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Cabeçalho vermelho (se for necessário ou removido) */
+.header-red {
+    background-color: red;
+    color: white;
+    text-align: left;
+    font-size: 20px;
+    padding: 5px 10px;
+    position: fixed;
+    top: 103px; /* Posição logo abaixo do primeiro header */
+    width: 100%;
+    z-index: 999;
+}
+
+.header-red p {
+    display: flex;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+#countdown {
+    font-weight: bold;
+    color: rgb(238, 242, 0); /* Cor destacando o temporizador */
+}
+
+/* Fundo */
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Ajustado para a altura da viewport */
+    background-image: url('img/fundo 1366x3072.png');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+/* Container geral com espaçamento entre os blocos */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; /* Espaçamento maior entre as imagens */
+    padding-top: 150px; /* Reduzido para ajustar o espaço do cabeçalho */
+}
+
+/* Estilo dos blocos com a imagem */
+.block {
+    min-height: 60px;
+    width: 100%;
+    max-width: 1366px;
+    height: 600px;
+    background-size: contain; /* Exibe a imagem inteira */
+    background-repeat: no-repeat; /* Evita repetição */
+    background-position: center; /* Centraliza a imagem */
+    text-decoration: none;
+    border-radius: 15px;
+    overflow: hidden;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+    border: 70px solid transparent; /* Aumenta as bordas para dar mais espaçamento visual */
+    padding: 0;
+    margin-bottom: 0;
+}
+
+/* Efeito hover ajustado para refletir as mudanças */
+.block:hover {
+    transform: scale(1.05);
+    filter: brightness(0.8);
+    cursor: pointer; /* Exibe o ponteiro apenas durante o hover sobre a imagem */
+}
+
+/* Estilos do Modal */
+.modal {
+    display: none; /* Inicialmente escondido */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo semitransparente */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+input[type="text"], input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#confirmation-message {
+    font-size: 18px;
+    font-weight: bold;
+    color: #28a745;
+    margin-top: 15px;
+}
+
+#join-community-btn {
+    margin-top: 20px;
+    background-color: #007bff;
+}
+
+#join-community-btn:hover {
+    background-color: #0056b3;
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+    /* Ajustando o header para display flex e centralizando o conteúdo */
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
+        height: 50px;
+    }
+
+    /* Ajustando o logo no header para centralizar */
+    .logo-left, .logo-center, .logo-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo-left img, .logo-center img, .logo-right img {
+        height: 50px;
+    }
+
+    /* Ajustando o espaçamento e centralização dos blocos */
+    .container {
+        padding-top: 120px;
+    }
+
+    .block {
+        width: 100%; /* Largura completa da tela */
+        height: 34vh; /* Ajustando a altura para metade da tela para não ficar grande demais */
+        margin-bottom: 10px;
+        border-radius: 10px;
+        border: 30px solid transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-size: cover; /* A imagem vai cobrir toda a área do bloco */
+        background-repeat: no-repeat;
+        background-position: center; /* Centraliza a imagem dentro do bloco */
+    }
+
+    /* Ajustando o tamanho da fonte no bloco */
+    .block {
+        font-size: 1.5rem;
+    }
+
+    /* Ajustando a largura do modal */
+    .modal-content {
+        width: 90%;
+    }
+
+    /* Ajustando os itens do header para caberem na tela */
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .header-red {
+        font-size: 18px;
+        padding: 5px 10px;
+        position: relative;
+        top: 50px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+
+

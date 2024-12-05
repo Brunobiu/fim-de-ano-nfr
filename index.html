@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocos de Imagem com Fundo Fixo e Cabeçalho</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-left">
+                <img src="img/logo nfr.png" alt="Logo Esquerda">
+            </div>
+            <div class="logo-center">
+                <img src="img/logo oferta semanal.png" alt="Logo Centro">
+            </div>
+            <div class="logo-right">
+                <a href="https://wa.me/5511999999999" target="_blank"> <!-- Substitua o número com o seu -->
+                    <img src="img/logo whats.png" alt="Logo Direita">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cabeçalho vermelho -->
+    <div class="header-red">
+        <p>Oferta válida até: <span id="countdown"></span></p>
+    </div>
+
+    <div class="background-overlay"></div>
+    <div class="container">
+        <a href="https://www.nfrbrand.com.br/" class="block" style="background-image: url('img/imagem1.png');"></a>
+        <a href="#" class="block" style="background-image: url('img/imagem1.png');"></a>
+        <a href="#" class="block" style="background-image: url('img/imagem1.png');"></a>
+        <a href="#" class="block" style="background-image: url('img/imagem1.png');"></a>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="close" class="close">&times;</span>
+            <h2>Receba nossas ofertas no WhatsApp</h2>
+            <form id="form">
+                <label for="whatsapp">WhatsApp:</label>
+                <input type="text" id="whatsapp" name="whatsapp" placeholder="Número WhatsApp" required><br><br>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" placeholder="Seu e-mail" required><br><br>
+
+                <button type="submit">Confirmar</button>
+            </form>
+            <p id="confirmation-message" style="display:none;">Confirmado com sucesso!</p>
+            <button id="join-community-btn" style="display:none;">Entrar na nossa comunidade do WhatsApp</button>
+        </div>
+    </div>
+
+    <script>
+        // Define a data de expiração para o dia 15 de dezembro de 2024, às 00:00
+        const targetTime = new Date("2024-12-15T00:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime(); // Obtém o tempo atual
+            const distance = targetTime - now; // Calcula a diferença entre o tempo final e o atual
+
+            // Calcula dias, horas, minutos e segundos
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24)); // Número de dias restantes
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Exibe a contagem regressiva no elemento
+            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            // Se o tempo acabar, mostra uma mensagem
+            if (distance < 0) {
+                clearInterval(interval); // Para o temporizador
+                document.getElementById("countdown").innerHTML = "Oferta expirada!";
+            }
+        }
+
+        // Atualiza o temporizador a cada segundo
+        const interval = setInterval(updateCountdown, 1000);
+
+        // Verifica se o modal já foi exibido para o usuário
+        if (!localStorage.getItem('modalShown')) {
+            // Se não, exibe o modal
+            document.getElementById('modal').style.display = 'block';
+
+            // Quando o modal for fechado
+            document.getElementById('close').onclick = function() {
+                document.getElementById('modal').style.display = 'none';
+            }
+
+            // Quando o formulário for enviado
+            document.getElementById('form').onsubmit = function(event) {
+                event.preventDefault(); // Impede o envio do formulário
+                document.getElementById('confirmation-message').style.display = 'block';
+                document.getElementById('join-community-btn').style.display = 'block';
+                // Esconde o formulário
+                document.getElementById('form').style.display = 'none';
+                
+                // Salva que o modal foi exibido
+                localStorage.setItem('modalShown', 'true');
+            }
+        } else {
+            // Caso o modal já tenha sido mostrado, não faça nada
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        // Quando o botão "Entrar na nossa comunidade" for clicado, você pode redirecionar
+        document.getElementById('join-community-btn').onclick = function() {
+            window.location.href = 'https://wa.me/5511999999999'; // Substitua com o link da sua comunidade
+        }
+    </script>
+</body>
+</html>
+    
