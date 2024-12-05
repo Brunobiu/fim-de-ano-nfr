@@ -284,8 +284,9 @@ footer {
 
     .header-container {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;   /* Centraliza todos os itens */
         align-items: center;
+        width: 100%;
     }
 
     /* Ajustando o logo no header para centralizar */
@@ -293,6 +294,7 @@ footer {
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-shrink: 0;  /* Impede que encolham */
     }
 
     .logo-left img, .logo-center img, .logo-right img {
@@ -306,11 +308,11 @@ footer {
 
     .container {
         display: flex;
-        flex-wrap: wrap;       /* Permite quebrar linha se necessário */
-        gap: 0px;             /* Diminuindo o espaçamento horizontal e vertical */
+        flex-wrap: wrap;
+        gap: 0px;  /* Mantém o espaçamento entre os blocos */
         justify-content: center;
     }
-    
+
     .block {
         width: 100%;           /* Mantém a largura total */
         height: 75vh;
@@ -325,20 +327,10 @@ footer {
         margin: 0;             /* Remove qualquer margem lateral adicional */
         font-size: 1.5rem;
     }
-    
-    
 
     /* Ajustando a largura do modal */
     .modal-content {
         width: 90%;
-    }
-
-    /* Ajustando os itens do header para caberem na tela */
-    .header-container {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
     }
 
     .header-red {
@@ -353,7 +345,6 @@ footer {
     .imagem-desktop {
         display: none;
     }
-    
 }
 
 
