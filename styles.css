@@ -297,7 +297,7 @@ footer {
 
     .block {
         width: 100%; /* Largura completa da tela */
-        height: 34vh; /* Ajustando a altura para metade da tela para não ficar grande demais */
+        height: 30vh; /* Ajustando a altura para metade da tela para não ficar grande demais */
         margin-bottom: 10px;
         border-radius: 10px;
         border: 30px solid transparent;
