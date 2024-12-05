@@ -43,7 +43,7 @@
             <h2>Receba nossas ofertas no WhatsApp</h2>
             
             <!-- Formulário para WhatsApp e E-mail -->
-            <form id="form" action="https://formspree.io/f/mzzbwzna" method="POST">
+            <form id="form" action="https://formspree.io/f/mzzbwzna" method="POST" onsubmit="handleFormSubmit(event)">
                 <label for="whatsapp">WhatsApp:</label>
                 <input type="text" id="whatsapp" name="whatsapp" placeholder="Número WhatsApp" required><br><br>
     
@@ -54,7 +54,11 @@
             </form>
     
             <p id="confirmation-message" style="display:none;">Confirmado com sucesso!</p>
-            <button id="join-community-btn" style="display:none;">Entrar na nossa comunidade do WhatsApp</button>
+            
+            <!-- Botão para entrar na comunidade do WhatsApp -->
+            <button id="join-community-btn" style="display:none;" onclick="window.location.href='https://chat.whatsapp.com/SEU_LINK_DO_GRUPO'">
+                Entrar na nossa comunidade do WhatsApp
+            </button>
         </div>
     </div>
     
@@ -139,6 +143,26 @@
         // Quando o botão "Entrar na nossa comunidade" for clicado, você pode redirecionar
         document.getElementById('join-community-btn').onclick = function() {
             window.location.href = 'https://chat.whatsapp.com/KXRzC7cSAqC1BElBNhKoci'; // Substitua com o link da sua comunidade
+        }
+
+        
+        
+        
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Previne o envio padrão, mas vamos mandar o formulário depois
+    
+            // Exibe a mensagem de confirmação
+            document.getElementById("confirmation-message").style.display = "block";
+    
+            // Exibe o botão para entrar na comunidade
+            document.getElementById("join-community-btn").style.display = "block";
+    
+            // Oculta o formulário após o envio
+            document.getElementById("form").style.display = "none";
+    
+            // Envia o formulário para o Formspree
+            var form = document.getElementById("form");
+            form.submit(); // Agora o formulário será enviado
         }
     </script>
 </body>
