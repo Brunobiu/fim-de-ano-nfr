@@ -304,23 +304,27 @@ footer {
         padding-top: 80px;
     }
 
+    .container {
+        display: flex;              /* Container flex */
+        flex-direction: column;     /* Blocos empilhados verticalmente */
+        gap: 10px;                  /* Espaçamento entre os blocos */
+    }
+    
     .block {
-        width: 100%;           /* Largura completa */
-        height: 75vh;          /* Aumenta a altura para dar mais espaço */
+        width: 100%;                /* Largura completa */
+        height: 75vh;               /* Altura de 75% da viewport */
         border-radius: 10px;
-        border: 20px solid transparent;
+        border: 10px solid transparent;  /* Reduzi a borda para diminuir o espaçamento */
         display: flex;
         justify-content: center;
         align-items: center;
         background-size: contain;   /* Mantém a proporção correta da imagem */
         background-repeat: no-repeat;
         background-position: center;
-    }
-
-    /* Ajustando o tamanho da fonte no bloco */
-    .block {
+        margin: 5px 0;              /* Margem vertical reduzida */
         font-size: 1.5rem;
     }
+    
 
     /* Ajustando a largura do modal */
     .modal-content {
