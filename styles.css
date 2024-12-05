@@ -123,7 +123,6 @@ header {
 /* Efeito hover ajustado para refletir as mudanças */
 .block:hover {
     transform: scale(1.05);
-    filter: brightness(0.8);
 }
 
 /* Estilos do Modal */
@@ -308,7 +307,6 @@ footer {
     .block {
         width: 100%;           /* Largura completa */
         height: 75vh;          /* Aumenta a altura para dar mais espaço */
-        margin-bottom: -100px;
         border-radius: 10px;
         border: 20px solid transparent;
         display: flex;
