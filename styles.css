@@ -93,7 +93,7 @@ header {
     flex-direction: column;
     align-items: center;
     gap: 40px; /* Espaçamento maior entre as imagens */
-    padding-top: 150px; /* Reduzido para ajustar o espaço do cabeçalho */
+    padding-top: 80px; /* Reduzido para ajustar o espaço do cabeçalho */
 }
 
 /* Estilo dos blocos com a imagem */
@@ -256,6 +256,10 @@ footer {
     text-decoration: underline;
 }
 
+.imagem-celular {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .footer-container {
         flex-direction: column;
@@ -298,21 +302,21 @@ footer {
 
     /* Ajustando o espaçamento e centralização dos blocos */
     .container {
-        padding-top: 120px;
+        padding-top: 80px;
     }
 
     .block {
-        width: 100%; /* Largura completa da tela */
-        height: 30vh; /* Ajustando a altura para metade da tela para não ficar grande demais */
+        width: 100%;           /* Largura completa */
+        height: 75vh;          /* Aumenta a altura para dar mais espaço */
         margin-bottom: 10px;
         border-radius: 10px;
         border: 30px solid transparent;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-size: cover; /* A imagem vai cobrir toda a área do bloco */
+        background-size: contain;   /* Mantém a proporção correta da imagem */
         background-repeat: no-repeat;
-        background-position: center; /* Centraliza a imagem dentro do bloco */
+        background-position: center;
     }
 
     /* Ajustando o tamanho da fonte no bloco */
@@ -342,6 +346,9 @@ footer {
         text-align: center;
     }
 
+    .imagem-desktop {
+        display: none;
+    }
     
 }
 
