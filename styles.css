@@ -307,7 +307,7 @@ footer {
     .container {
         display: flex;
         flex-wrap: wrap;       /* Permite quebrar linha se necessário */
-        gap: 10px;             /* Diminuindo o espaçamento horizontal e vertical */
+        gap: 0px;             /* Diminuindo o espaçamento horizontal e vertical */
         justify-content: center;
     }
     
