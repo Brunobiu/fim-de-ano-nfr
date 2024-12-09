@@ -98,30 +98,35 @@
 
     <script>
         // Define a data de expiração para o dia 15 de dezembro de 2024, às 00:00
-        const targetTime = new Date("2024-12-15T00:00:00").getTime();
+// Define o horário de expiração: 15 de dezembro às 23h59
+const targetTime = new Date('2024-12-15T23:59:59').getTime();
 
-        function updateCountdown() {
-            const now = new Date().getTime(); // Obtém o tempo atual
-            const distance = targetTime - now; // Calcula a diferença entre o tempo final e o atual
+function updateCountdown() {
+    const now = new Date().getTime(); // Obtém o tempo atual
+    const distance = targetTime - now; // Calcula a diferença entre o tempo final e o atual
 
-            // Calcula dias, horas, minutos e segundos
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24)); // Número de dias restantes
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    // Calcula dias, horas, minutos e segundos
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24)); // Número de dias restantes
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Exibe a contagem regressiva no elemento
-            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    // Exibe a contagem regressiva no elemento
+    document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
-            // Se o tempo acabar, mostra uma mensagem
-            if (distance < 0) {
-                clearInterval(interval); // Para o temporizador
-                document.getElementById("countdown").innerHTML = "Oferta expirada!";
-            }
-        }
+    // Se o tempo acabar, mostra uma mensagem
+    if (distance < 0) {
+        clearInterval(interval); // Para o temporizador
+        document.getElementById("countdown").innerHTML = "Oferta expirada!";
+    }
+}
 
-        // Atualiza o temporizador a cada segundo
-        const interval = setInterval(updateCountdown, 1000);
+// Atualiza o contador a cada segundo
+const interval = setInterval(updateCountdown, 1000);
+
+
+
+
 
         // Verifica se o modal já foi exibido para o usuário
         if (!localStorage.getItem('modalShown')) {
