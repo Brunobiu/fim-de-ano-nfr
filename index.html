@@ -46,33 +46,6 @@
     </div>
     
 
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span id="close" class="close">&times;</span>
-            <h2>Receba nossas ofertas no WhatsApp</h2>
-            
-            <!-- Formulário para WhatsApp e E-mail -->
-            <form id="form" >
-                <label for="whatsapp">WhatsApp:</label>
-                <input type="text" id="whatsapp" name="whatsapp" placeholder="Número WhatsApp" required><br><br>
-    
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" placeholder="Seu e-mail" required><br><br>
-    
-                <button type="submit">Confirmar</button>
-            </form>
-    
-            <p id="confirmation-message" style="display:none;">Confirmado com sucesso!</p>
-            
-            <!-- Botão para entrar na comunidade do WhatsApp -->
-            <button id="join-community-btn" style="display:none;" onclick="window.location.href='https://chat.whatsapp.com/SEU_LINK_DO_GRUPO'">
-                Entrar na nossa comunidade do WhatsApp
-            </button>
-        </div>
-    </div>
-    
-    
-
 
     <footer>
         <div class="footer-container">
@@ -128,36 +101,6 @@ const interval = setInterval(updateCountdown, 1000);
 
 
 
-        // Verifica se o modal já foi exibido para o usuário
-        if (!localStorage.getItem('modalShown')) {
-            // Se não, exibe o modal
-            document.getElementById('modal').style.display = 'block';
-
-            // Quando o modal for fechado
-            document.getElementById('close').onclick = function() {
-                document.getElementById('modal').style.display = 'none';
-            }
-
-            // Quando o formulário for enviado
-            document.getElementById('form').onsubmit = function(event) {
-                event.preventDefault(); // Impede o envio do formulário
-                document.getElementById('confirmation-message').style.display = 'block';
-                document.getElementById('join-community-btn').style.display = 'block';
-                // Esconde o formulário
-                document.getElementById('form').style.display = 'none';
-                
-                // Salva que o modal foi exibido
-                localStorage.setItem('modalShown', 'true');
-            }
-        } else {
-            // Caso o modal já tenha sido mostrado, não faça nada
-            document.getElementById('modal').style.display = 'none';
-        }
-
-        // Quando o botão "Entrar na nossa comunidade" for clicado, você pode redirecionar
-        document.getElementById('join-community-btn').onclick = function() {
-            window.location.href = 'https://chat.whatsapp.com/KXRzC7cSAqC1BElBNhKoci'; // Substitua com o link da sua comunidade
-        }
 
         
         
